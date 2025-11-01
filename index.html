@@ -49,10 +49,19 @@
                     </label>
 
                     <label class="select w-full mb-4">
+                        <span class="label">Alliance Color</span>
+                        <select id="allianceColor">
+                            <option disabled selected>Alliance Color</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </label>
+
+                    <label class="select w-full mb-4">
                         <span class="label">Starting Side</span>
                         <select id="startSide">
                             <option disabled selected>Match Start Side</option>
-                            <option>Near</option>
+                            <option>Goal</option>
                             <option>Far</option>
                         </select>
                     </label>
@@ -60,68 +69,48 @@
                     <button class="btn btn-primary w-full" onclick="switchToAutonomous()" type="button">Next</button>
                 </fieldset>
 
-                <fieldset id="autonomous" class="fieldset bg-base-200 border-base-300 rounded-box mx-auto mt-10 w-[95vw] border p-4 hidden lg:w-md">
+                <fieldset id="autonomous" class="fieldset bg-base-200 border-base-300 rounded-box mx-auto mt-10 w-[95vw] border p-4 lg:w-md hidden">
                     <legend class="fieldset-legend">Autonomous</legend>
 
                     <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Samples</legend>
+                        <legend class="fieldset-legend">Artifacts</legend>
                         <div class="grid grid-cols-2 gap-2">
-                            <label for="autoHighSamplesScored" class="floating-label mb-1">
-                                <span>High Samples Scored</span>
+                            <label for="autoClassified" class="floating-label mb-1">
+                                <span>Classified</span>
                                 <input
-                                        id="autoHighSamplesScored"
+                                        id="autoClassified"
                                         type="number"
-                                        placeholder="High Samples Scored"
+                                        placeholder="Classified Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="autoHighSamplesDropped" class="floating-label mb-1">
-                                <span>High Samples Dropped</span>
+                            <label for="autoMissed" class="floating-label mb-1">
+                                <span>Dropped</span>
                                 <input
-                                        id="autoHighSamplesDropped"
+                                        id="autoMissed"
                                         type="number"
-                                        placeholder="High Samples Dropped"
+                                        placeholder="Missed Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="autoLowSamplesScored" class="floating-label mb-1">
-                                <span>Low Samples Scored</span>
+                            <label for="autoOverflow" class="floating-label mb-1">
+                                <span>Overflow Scored</span>
                                 <input
-                                        id="autoLowSamplesScored"
+                                        id="autoOverflow"
                                         type="number"
-                                        placeholder="Low Samples Scored"
+                                        placeholder="Overflow Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="autoLowSamplesDropped" class="floating-label mb-1">
-                                <span>Low Samples Dropped</span>
+                            <label for="autoBounceRamp" class="floating-label mb-1">
+                                <span>Bounced Onto Ramp</span>
                                 <input
-                                        id="autoLowSamplesDropped"
+                                        id="autoBounceRamp"
                                         type="number"
-                                        placeholder="Low Samples Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="autoNetSamplesScored" class="floating-label mb-1">
-                                <span>Net Samples Scored</span>
-                                <input
-                                        id="autoNetSamplesScored"
-                                        type="number"
-                                        placeholder="Net Samples Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="autoLowSamplesDropped" class="floating-label mb-1">
-                                <span>Net Samples Dropped</span>
-                                <input
-                                        id="autoNetSamplesDropped"
-                                        type="number"
-                                        placeholder="Net Samples Dropped"
+                                        placeholder="Bounced Onto Ramp"
                                         class="input input-md w-full"
                                         min=0
                                 />
@@ -130,61 +119,34 @@
                     </fieldset>
 
                     <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Specimens</legend>
-                        <div class="grid grid-cols-2 gap-2">
-                            <label for="autoHighSpecimensScored" class="floating-label mb-1">
-                                <span>High Specimens Scored</span>
-                                <input
-                                        id="autoHighSpecimensScored"
-                                        type="number"
-                                        placeholder="High Specimens Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="autoHighSpecimensDropped" class="floating-label mb-1">
-                                <span>High Specimens Dropped</span>
-                                <input
-                                        id="autoHighSpecimensDropped"
-                                        type="number"
-                                        placeholder="High Specimens Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="autoLowSpecimensScored" class="floating-label mb-1">
-                                <span>Low Specimens Scored</span>
-                                <input
-                                        id="autoLowSpecimensScored"
-                                        type="number"
-                                        placeholder="Low Specimens Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="autoLowSpecimensDropped" class="floating-label mb-1">
-                                <span>Low Specimens Dropped</span>
-                                <input
-                                        id="autoLowSpecimensDropped"
-                                        type="number"
-                                        placeholder="Low Specimens Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                        </div>
+                        <legend class="fieldset-legend">Motifs</legend>
+                        <label for="autoMotifs" class="floating-label mb-1">
+                            <span>Motifs</span>
+                            <input
+                                    id="autoMotifs"
+                                    type="number"
+                                    placeholder="Motifs"
+                                    class="input input-md w-full"
+                                    min=0
+                            />
+                        </label>
+
+                        <label class="select w-full mb-1">
+                            <span class="label">Motif</span>
+                            <select id="whichMotif">
+                                <option disabled selected>Which Motif</option>
+                                <option>PPG</option>
+                                <option>PGP</option>
+                                <option>GPP</option>
+                            </select>
+                        </label>
                     </fieldset>
 
                     <fieldset class="fieldset">
                         <legend class="fieldset-legend">Parking</legend>
-                        <label class="select w-full mb-1">
-                            <span class="label">Parking</span>
-                            <select id="autoParkLocation">
-                                <option disabled selected>Auto Park Location</option>
-                                <option>None</option>
-                                <option>Level 1 Ascent</option>
-                                <option>Observation Zone</option>
-                            </select>
+                        <label class="label mb-1" for="autoLeave">
+                            <input type="checkbox" id="autoLeave" class="checkbox checkbox-lg" />
+                            Auto Leave?
                         </label>
                     </fieldset>
 
@@ -199,6 +161,15 @@
                                     class="input input-md w-full"
                             />
                         </label>
+                        <label for="autoGateNotes" class="floating-label mb-1">
+                            <span>Gate Notes</span>
+                            <input
+                                    id="autoGateNotes"
+                                    type="text"
+                                    placeholder="Gate Notes"
+                                    class="input input-md w-full"
+                            />
+                        </label>
                     </fieldset>
 
                     <div class="grid grid-cols-2 gap-2">
@@ -207,68 +178,49 @@
                     </div>
                 </fieldset>
 
+
                 <fieldset id="teleop" class="fieldset bg-base-200 border-base-300 rounded-box mx-auto mt-10 w-[95vw] border p-4 lg:w-md hidden">
                     <legend class="fieldset-legend">TeleOp</legend>
 
                     <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Samples</legend>
+                        <legend class="fieldset-legend">Artifacts</legend>
                         <div class="grid grid-cols-2 gap-2">
-                            <label for="teleopHighSamplesScored" class="floating-label mb-1">
-                                <span>High Samples Scored</span>
+                            <label for="teleopClassified" class="floating-label mb-1">
+                                <span>Classified</span>
                                 <input
-                                        id="teleopHighSamplesScored"
+                                        id="teleopClassified"
                                         type="number"
-                                        placeholder="High Samples Scored"
+                                        placeholder="Classified Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="teleopHighSamplesDropped" class="floating-label mb-1">
-                                <span>High Samples Dropped</span>
+                            <label for="teleopMissed" class="floating-label mb-1">
+                                <span>Dropped</span>
                                 <input
-                                        id="teleopHighSamplesDropped"
+                                        id="teleopMissed"
                                         type="number"
-                                        placeholder="High Samples Dropped"
+                                        placeholder="Missed Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="teleopLowSamplesScored" class="floating-label mb-1">
-                                <span>Low Samples Scored</span>
+                            <label for="teleopOverflow" class="floating-label mb-1">
+                                <span>Overflow Scored</span>
                                 <input
-                                        id="teleopLowSamplesScored"
+                                        id="teleopOverflow"
                                         type="number"
-                                        placeholder="Low Samples Scored"
+                                        placeholder="Overflow Artifacts"
                                         class="input input-md w-full"
                                         min=0
                                 />
                             </label>
-                            <label for="teleopLowSamplesDropped" class="floating-label mb-1">
-                                <span>Low Samples Dropped</span>
+                            <label for="teleopBounceRamp" class="floating-label mb-1">
+                                <span>Bounced Onto Ramp</span>
                                 <input
-                                        id="teleopLowSamplesDropped"
+                                        id="teleopBounceRamp"
                                         type="number"
-                                        placeholder="Low Samples Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="teleopNetSamplesScored" class="floating-label mb-1">
-                                <span>Net Samples Scored</span>
-                                <input
-                                        id="teleopNetSamplesScored"
-                                        type="number"
-                                        placeholder="Net Samples Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="teleopLowSamplesDropped" class="floating-label mb-1">
-                                <span>Net Samples Dropped</span>
-                                <input
-                                        id="teleopNetSamplesDropped"
-                                        type="number"
-                                        placeholder="Net Samples Dropped"
+                                        placeholder="Bounced Onto Ramp"
                                         class="input input-md w-full"
                                         min=0
                                 />
@@ -277,49 +229,17 @@
                     </fieldset>
 
                     <fieldset class="fieldset">
-                        <legend class="fieldset-legend">Specimens</legend>
-                        <div class="grid grid-cols-2 gap-2">
-                            <label for="teleopHighSpecimensScored" class="floating-label mb-1">
-                                <span>High Specimens Scored</span>
-                                <input
-                                        id="teleopHighSpecimensScored"
-                                        type="number"
-                                        placeholder="High Specimens Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="teleopHighSpecimensDropped" class="floating-label mb-1">
-                                <span>High Specimens Dropped</span>
-                                <input
-                                        id="teleopHighSpecimensDropped"
-                                        type="number"
-                                        placeholder="High Specimens Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="teleopLowSpecimensScored" class="floating-label mb-1">
-                                <span>Low Specimens Scored</span>
-                                <input
-                                        id="teleopLowSpecimensScored"
-                                        type="number"
-                                        placeholder="Low Specimens Scored"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                            <label for="teleopLowSpecimensDropped" class="floating-label mb-1">
-                                <span>Low Specimens Dropped</span>
-                                <input
-                                        id="teleopLowSpecimensDropped"
-                                        type="number"
-                                        placeholder="Low Specimens Dropped"
-                                        class="input input-md w-full"
-                                        min=0
-                                />
-                            </label>
-                        </div>
+                        <legend class="fieldset-legend">Motifs</legend>
+                        <label for="teleopMotifs" class="floating-label mb-1">
+                            <span>Motifs</span>
+                            <input
+                                    id="teleopMotifs"
+                                    type="number"
+                                    placeholder="Motifs"
+                                    class="input input-md w-full"
+                                    min=0
+                            />
+                        </label>
                     </fieldset>
 
                     <fieldset class="fieldset">
@@ -333,6 +253,15 @@
                                     class="input input-md w-full"
                             />
                         </label>
+                        <label for="teleopGateNotes" class="floating-label mb-1">
+                            <span>Gate Notes</span>
+                            <input
+                                    id="teleopGateNotes"
+                                    type="text"
+                                    placeholder="Gate Notes"
+                                    class="input input-md w-full"
+                            />
+                        </label>
                     </fieldset>
 
                     <div class="grid grid-cols-2 gap-2">
@@ -340,6 +269,7 @@
                         <button class="w-full btn btn-primary" onclick="switchToEndgame()" type="button">Next</button>
                     </div>
                 </fieldset>
+
 
                 <fieldset id="endgame" class="fieldset bg-base-200 border-base-300 rounded-box mx-auto mt-10 w-[95vw] border p-4 lg:w-md hidden">
                     <legend class="fieldset-legend">Endgame</legend>
@@ -351,10 +281,8 @@
                             <select id="endgameParkLocation">
                                 <option disabled selected>Park Location</option>
                                 <option>None</option>
-                                <option>Level 1 Ascent</option>
-                                <option>Level 2 Ascent</option>
-                                <option>Level 3 Ascent</option>
-                                <option>Observation Zone</option>
+                                <option>Partial</option>
+                                <option>Full</option>
                             </select>
                         </label>
                     </fieldset>
@@ -382,14 +310,9 @@
                             Broke?
                         </label>
 
-                        <label class="select w-full mb-1">
-                            <span class="label">Robot Design</span>
-                            <select id="robotDesign">
-                                <option disabled selected>Robot Design</option>
-                                <option>Claw</option>
-                                <option>Active Intake</option>
-                                <option>Other</option>
-                            </select>
+                        <label class="label mb-1" for="sorting">
+                            <input type="checkbox" id="sorting" class="checkbox checkbox-lg" />
+                            Can Sort?
                         </label>
 
                         <label for="otherNotes" class="floating-label mb-1">
