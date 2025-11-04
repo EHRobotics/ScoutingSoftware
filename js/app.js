@@ -65,6 +65,8 @@ function switchToEndgame() {
 }
 
 function createJson(
+    scoutName,
+
     teamNumber,
     matchNumber,
     allianceColor,
@@ -95,6 +97,8 @@ function createJson(
     otherNotes
 ) {
     return {
+        scoutName,
+
         teamNumber,
         matchNumber,
         allianceColor,
@@ -136,8 +140,10 @@ function getFormValues() {
     }
 
     const newJson = createJson(
+        document.getElementById("scoutName").value,
         document.getElementById("teamNum").value,
         document.getElementById("matchNum").value,
+        document.getElementById("allianceColor").value,
         document.getElementById("startSide").value,
         document.getElementById("autoClassified").value,
         document.getElementById("autoMissed").value,
@@ -145,7 +151,7 @@ function getFormValues() {
         document.getElementById("autoBounceRamp").value,
         document.getElementById("autoMotifs").value,
         document.getElementById("whichMotif").value,
-        document.getElementById("autoLeave").value,
+        document.getElementById("autoLeave").checked,
         document.getElementById("autoNotes").value,
         document.getElementById("autoGateNotes").value,
         document.getElementById("teleopClassified").value,
@@ -157,8 +163,8 @@ function getFormValues() {
         document.getElementById("teleopGateNotes").value,
         document.getElementById("endgameParkLocation").value,
         document.getElementById("penaltyPoints").value,
-        document.getElementById("wasBroken").value,
-        document.getElementById("sorting").value,
+        document.getElementById("wasBroken").checked,
+        document.getElementById("sorting").checked,
         document.getElementById("otherNotes").value
     );
 
